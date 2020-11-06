@@ -20,7 +20,11 @@ Route::get('/', function () {
 
 Route::get('/migrate',function(){
 	Artisan::call('migrate');
-	return Route('welcome');
+	return redirect('/');
+});
+Route::get('/artisanLinks',function(){
+	Artisan::call('storage:link', [] );
+	return redirect('/');
 });
 
 Route::get('/shop/{category?}',function ($product = 'Products'){
@@ -41,7 +45,7 @@ Route::get('/basket',function (){
 
 Auth::routes();
 
-Route::get('/admin/{category}', [App\Http\Controllers\HomeController::class, 'index'])->name('admin');
+Route::get('/admin/{category?}', [App\Http\Controllers\HomeController::class, 'index'])->name('admin');
 
 Route::get('/addToCart', [App\Http\Controllers\Products::class, 'addToCart'])->name('addToCart');
 Route::post('/updateBasket', [App\Http\Controllers\Products::class, 'updateBasket']);

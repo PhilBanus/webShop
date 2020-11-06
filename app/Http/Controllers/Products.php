@@ -44,7 +44,9 @@ class Products extends Controller
 	$id = $request->id;
 	$product = Product::where('id',$request->id)->first();
     $cart = Session::get('cart');
-	if(array_key_exists($id,$cart))
+		if(is_null($cart))
+			$preqty = 0;
+	elseif(array_key_exists($id,$cart))
 		$preqty = $cart[$id]['qty'];
 	else
 		$preqty = 0;

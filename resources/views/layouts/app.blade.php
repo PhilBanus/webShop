@@ -103,7 +103,7 @@
                                         {{ __('Logout') }}
                                     </a>
 									@if(Auth::user()->isAdmin())
-									<a href="./admin/Products" class="dropdown-item">Admin</a>
+									<a href="{{route('admin')}}/Products" class="dropdown-item">Admin</a>
 									@endif
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

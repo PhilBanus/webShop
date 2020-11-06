@@ -73,7 +73,9 @@
 		@if($sale ?? false)
 		 <sale class="corner-ribbon top-left red">£500</sale>
 		@endif
-      <img src="{{asset('productImages/'.$item->img)}}" class="card-img-top" alt="{{$item->name}}">
+		<div class="card-img-top w-100 overflow-hidden" style="height: 150px" >
+      <img src="{{asset('productImages/'.$item->img)}}" class="w-md-100" style="min-height: 100%; max-height: 120%;" alt="{{$item->name}}">
+			</div>
       <div class="card-body">
         <h5 class="card-title">{{$item->name}}</h5>
     <p class="card-text">{{$item->make()->first()->make}}</p>

@@ -52,8 +52,8 @@
   </div>
  @endforeach
 					@else
-						
-						 @foreach(App\Models\CategoryProduct::where('Name',$product)->first()->products as $Item)
+						@if(App\Models\CategoryProduct::where('Name',$product)->first()->items)
+						 @foreach(App\Models\CategoryProduct::where('Name',$product)->first()->items as $Item)
   <div class="col mt-2">
     <a href="{{$product}}/{{$Item->id}}" class="card">
       <img src="{{asset('productImages/'.$Item->img)}}" class="card-img-top" alt="{{$Item->name}}">
@@ -64,6 +64,7 @@
     </a>
   </div>
  @endforeach
+						@endif
 					
                     @endif
 						
